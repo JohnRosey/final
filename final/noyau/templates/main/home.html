@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     
+<!---<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+     Prism CSS -->
+     {% load static %}
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" >
+<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" >
+    <link href="{% static "tinymce/css/prism.css" %}" rel="stylesheet">
+    <link href="{% static "tinymce/css/chosen.css" %}" rel="stylesheet">
+
+
+</head>
+<title>Title</title>
+
+<!-- Prism JS -->
+<script src="{% static "tinymce/js/prism.js" %}"></script>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Films</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Page principale
+            <span class="visually-hidden">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Enregister</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Page de connexion</a>
+        </li>
+      </ul>
+      <form class="d-flex">
+        <input class="form-control me-sm-2" type="text" placeholder="Search">
+        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+{% for n in netfeelex %}
+<div class="row">
+  <div class="card text-white bg-warning mb-3>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{n.Titre_filme}}</h5>
+        <p class="card-text">{{n.Contenu_filme|safe}}</p>
+        <a href="#" class="btn btn-primary">{{n.Date_publie |safe }}</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
+
+
+
+
+
+</body>
+</html>
